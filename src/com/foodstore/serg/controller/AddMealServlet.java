@@ -2,7 +2,6 @@ package com.foodstore.serg.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.foodstore.serg.model.Meal;
 import com.foodstore.serg.service.MealService;
-import com.foodstore.serg.utils.CheckUtils;
+import com.foodstore.serg.utils.CheckMealUtils;
+import com.foodstore.serg.utils.TimeMealUtils;
 
 @WebServlet(name = "AddMealServlet", urlPatterns = "/add")
 public class AddMealServlet extends HttpServlet {
@@ -25,6 +25,8 @@ public class AddMealServlet extends HttpServlet {
 	private static final String OWNER = "owner";
 	private static final String PRICE = "price";
 	private static final String AVAILABLE = "available";
+	private static final String ERROR = "<html><body>Error Some Fields are Empty or Incorrect</body></html>";
+	private static final String SUCCESS = "<html><body>Meal is successfully created and added to store</body></html>";
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -35,19 +37,23 @@ public class AddMealServlet extends HttpServlet {
 		String title = request.getParameter(TITLE);
 		String description = request.getParameter(DESCRIPTION);
 		String type = request.getParameter(TYPE);
-		double price = Double.parseDouble(request.getParameter(PRICE));
+		String price = request.getParameter(PRICE);
 		boolean available = Boolean.parseBoolean(request.getParameter(AVAILABLE));
 		String owner = request.getParameter(OWNER);
 		
+		String time = TimeMealUtils.getTime();
 		
-		
-		Meal meal = CheckUtils.create(title, description, type, available, price, owner, new Date());
+		//New Date can be created in CheckUtils.create or in Model constructor (in case it is Adding time, otherwise - ignore)
+		// *****Now Date is created in class TimeUtils****
+		Meal meal = CheckMealUtils.create(title, description, type, available, price, owner, time);
 		
 		if(meal == null){
-			out.write("<html><body>Error Some Fields are Empty or Incorrect</body></html>");
+			// Constant
+			out.write(ERROR);
 		}else{
 			MealService.add(meal);
-			out.write("<html><body>Meal is successfully created and added to store</body></html>");
+			// Constant
+			out.write(SUCCESS);
 		}	
 	}
 	

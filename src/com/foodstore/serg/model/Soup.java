@@ -1,13 +1,11 @@
 package com.foodstore.serg.model;
 
-import java.util.Date;
-
 public class Soup extends Meal{
 	private String color;
 	
-	public Soup(String title, String description, String type, boolean available, double price,
-			String owner, Date date, String color){
-		super(title,description,type, available, price,owner, date);
+	public Soup(String title, String description, String type, boolean available, String price,
+			String owner, String color){
+		super(title,description,type, available, price,owner);
 		this.color = color;
 	}
 	

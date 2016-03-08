@@ -10,24 +10,13 @@ public class MealRepository {
 	
 	private static List<Meal> listOfMeals = new ArrayList<>();
 	
-	public static void add(Meal meal){
-		listOfMeals.add(meal);
+	//Make it boolean to return true or false (in case DB errors)
+	public static boolean add(Meal meal){
+		return listOfMeals.add(meal);
 	}
 	
-	public static boolean remove(Meal mealForDelete){
-		
-		Iterator<Meal> iter = listOfMeals.iterator();
-		while(iter.hasNext()){
-			Meal meal = iter.next();
-			if(mealForDelete.equals(meal)){
-				iter.remove();
-				return true;
-			}
-		}
-		return false;
-	}
 	
-	public static boolean removeById(long id){
+	public static boolean remove(long id){
 		Iterator<Meal> iter = listOfMeals.iterator();
 		while(iter.hasNext()){
 			Meal meal = iter.next();
@@ -38,50 +27,12 @@ public class MealRepository {
 		}
 		return false;
 	}
-	
-	public static boolean removeByTitle(String title){
-		Iterator<Meal> iter = listOfMeals.iterator();
-		while(iter.hasNext()){
-			Meal meal = iter.next();
-			if(meal.getTitle().equals(title)){
-				iter.remove();
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	public static boolean update (Meal mealForUpdate){
-		for(int i=0; i<listOfMeals.size(); i++){
-			if(listOfMeals.get(i).getId() == mealForUpdate.getId()){
-				listOfMeals.set(i, mealForUpdate);
-				return true;
-			}
-		}
-		return false;
-	}
+		
 	
 	public static List<Meal> getAll() {
 		return listOfMeals;
 	}
 	
-	public static Meal getMealByTitle(String title){
-		for(Meal meal : listOfMeals){
-			if(meal.getTitle().equals(title)){
-				return meal;
-			}
-		}
-		return null;
-	}
-	
-	public static Meal getMealByPrice(double price){
-		for(Meal meal : listOfMeals){
-			if(meal.getPrice() == price){
-				return meal;
-			}
-		}
-		return null;
-	}
 	
 	public static Meal getMealById(long id){
 		for(Meal meal : listOfMeals){
@@ -90,5 +41,27 @@ public class MealRepository {
 			}
 		}
 		return null;
+	}
+	
+	public static List<Meal> search(String searchedField){
+		
+		List<Meal> resultOfSearch = new ArrayList<>();
+		
+		//You should not access Repository directly from Service layer. Implement in DAO layer.
+		for(Meal meal: MealRepository.getAll()){
+		
+			if(searchedField.equals(meal.getTitle()) || 
+					searchedField.equals(meal.getDescription()) || 
+					searchedField.equals(meal.getOwner())||
+					searchedField.equals(meal.getType()) ||
+					searchedField.equals(String.valueOf(meal.getPrice())) ||
+					searchedField.equals(String.valueOf(meal.getTime())) || 
+					searchedField.equals(String.valueOf(meal.isAvailable()))) {
+				
+				resultOfSearch.add(meal);
+			}
+		}
+		
+		return resultOfSearch;
 	}
 }

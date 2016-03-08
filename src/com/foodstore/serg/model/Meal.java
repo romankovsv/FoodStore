@@ -1,11 +1,9 @@
 package com.foodstore.serg.model;
 
-import java.util.Date;
+import java.math.BigDecimal;
 import java.util.Objects;
 
-import org.joda.time.DateTime;
-
-import com.foodstore.serg.utils.TimeUtils;
+import com.foodstore.serg.utils.TimeMealUtils;
 
 
 public class Meal {
@@ -14,28 +12,26 @@ public class Meal {
 	private String title;
 	private String description;
 	private String type;
-	private boolean available;
-	private double price;
+	private Boolean available;
+	private BigDecimal price;
 	private String owner;
 	private String time;	
 	
 	
 	private static long countId = 1;
 	
-	public Meal(String title, String description, String type, boolean available, double price,
-			String owner, Date date){
+	public Meal(String title, String description, String type, boolean available, String price,
+			String owner){
 		this.title = title;
 		this.description= description;
 		this.type = type;
 		this.available = available;
-		this.price = price;
+		this.price = new BigDecimal(price);
 		this.owner = owner;
-		this.time = TimeUtils.getTime(date);
+		this.time = TimeMealUtils.getTime();
 		id = setId();
 	}
 	
-	
-
 
 	private static long setId(){
 		countId++;
@@ -70,11 +66,12 @@ public class Meal {
 	public void setAvailable(boolean available) {
 		this.available = available;
 	}
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setPrice(String price) {
+		if(price != null)
+		this.price = new BigDecimal(price);
 	}
 	public String getOwner() {
 		return owner;
@@ -85,12 +82,7 @@ public class Meal {
 	public String getTime() {
 		return time;
 	}
-	public void setTime(Date date) {
-		DateTime dateTime = new DateTime(date);
-		this.time  =  String.valueOf(dateTime.getHourOfDay())+":"+String.valueOf(dateTime.getMinuteOfHour())
-		+":"+String.valueOf(dateTime.secondOfMinute());
 	
-	}
 	
 	@Override
 	public String toString(){
