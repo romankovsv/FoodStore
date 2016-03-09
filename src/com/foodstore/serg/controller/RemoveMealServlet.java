@@ -26,17 +26,13 @@ public class RemoveMealServlet extends HttpServlet {
 	private static final String ID = "id";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		/* Due to specification, you should remove object only by ID
-		 *  /remove?id=15   removes object with id=15
-		 */
 		
 			PrintWriter out = response.getWriter();
 			response.setContentType(CONTENT_TYPE);
 			
-			long idForRemoving = Long.parseLong(request.getParameter(ID));
 			
 			try{	
+				long idForRemoving = Long.parseLong(request.getParameter(ID));
 				if(MealService.remove(idForRemoving)){
 					out.write(SUCCESS);
 				}else{
