@@ -3,22 +3,23 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Add Page</title>
-		<link rel="stylesheet" type="text/css" href="newcss.css">
+		<link rel="stylesheet" type="text/css" href="css\style.css">
 	</head>
     
     <header class="topbar">
         <ul>
             <li><a class="references" href="index.html">Home</a></li>
-            <li><a href="addPage.html">Add</a></li>
-            <li><a href="dashboardPage.html">Dashboard</a></li>
+            <li><a href="add.html" class="active">Add</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
         </ul>
 </header>
+  
 <br>
 <p class="suggest">Please add the product:</p>
 	
 	<body class="page">
 		<section class="main_field">
-		<form>
+		<form action="add" method="get">
 			<table class="fields">
                 
 				<tr>
@@ -40,7 +41,7 @@
                 </tr>
 				<tr>
                     <td><label>Available:</label></td>
-                    <td><input  type="checkbox" name="available"></td>
+                    <td><input class="available" type="checkbox" name="available"></td>
                 </tr>
 				<tr>
                     <td><label>Price:</label></td>

@@ -1,7 +1,7 @@
-@CHARSET "UTF-8";
 
 .topbar {
-    height: 50px;
+    min-width: 400px;
+    height: 65px;
     font-family:Arial, Helvetica, sans-serif;
     font-weight: bold;
     position :relative;
@@ -12,14 +12,24 @@
 }
 
 .topbar ul {
-    list-style-type: none;
-    margin: 0;
+    list-style: none;
     padding: 0;
-    overflow: hidden;
+    margin: 0;
 }
 
 .topbar li {
-    float: left;
+   float: left;
+    display: block;
+    padding: 10px 20px 10px 10px;
+}
+
+.topbar li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    
 }
 
 .page{
@@ -47,15 +57,20 @@
     height:430px;
     border: 1px solid #000000;
     border-collapse: collapse;
-    background-color:darkseagreen;
+    background-color:#b0b4b0;
 }
 
-.topbar li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 25px 16px;
-    text-decoration: none;
+.available{
+     margin-bottom: 5px;
+}
+
+.image{
+    float:right;
+}
+
+
+.references a:hover, .active {
+    border-bottom: 2px solid black;
 }
 
 .subm{
@@ -67,4 +82,11 @@
 
 .suggest{
     font-weight: bolder;
+}
+
+.image{
+float: right; 
+clear: left;
+margin-top:6px;
+
 }

@@ -1,5 +1,6 @@
 .topbar {
-    height: 50px;
+    min-width: 500px; 
+    height: 65px;
     font-family:Arial, Helvetica, sans-serif;
     font-weight: bold;
     position :relative;
@@ -10,38 +11,60 @@
 }
 
 .topbar ul {
-    list-style-type: none;
-    margin: 0;
+    list-style: none;
     padding: 0;
-    overflow: hidden;
+    margin: 0;
 }
 
 .topbar li {
-    float: left;
+   float: left;
+    display: block;
+    padding: 10px 20px 10px 10px;
 }
 
 .topbar li a {
     display: block;
     color: black;
     text-align: center;
-    padding: 25px 16px;
+    padding: 10px 20px;
     text-decoration: none;
+    
+}
+.references a:hover, .active {
+    border-bottom: 3px solid black;
 }
 
 .page{
     background-color:burlywood;
 }
 
-.search_field{
-    width:456px;
+.body{
+    min-width: 600px;
+    padding:0;
+    
+}
+
+
+.inputs .search_field{
+    width:410px;
     padding: 12px 10px;
     margin: 10px 0px ;
     display: inline-block;
-    border: 1px solid #000000;
-    box-sizing: border-box;
+    border: 1px solid black;
+   
     line-height:10px;
      cursor: pointer;
 }
+
+.inputs .search_button {
+    background-color: rgb(83, 109, 103);
+    border:  1px solid black; 
+    color: black;
+    padding: 10px 80px;
+    text-decoration: none;
+    margin: 6px 7px; 
+}
+
 
 .tableOfMeals{  
      width:650px;
@@ -49,32 +72,30 @@
 }
 
 .tableOfMeals table, th, td {
-   border: 1px solid black; 
-     padding: 10px;
+  
     text-align: left;
     font-family: Arial, Helvetica,sans-serif;
 } 
 
 
 .tableOfMeals th {
+     padding: 10px;
     height: 20px;
     background-color:  	#DEB887; 
-    
+      border: 1px solid black;
 }
 
 .tableOfMeals tr{
+     padding: 10px;
 	font-weight: normal;
+      border: 1px solid black;
 }
 
-.inputs input[type=submit] {
-    background-color: rgb(83, 109, 103);
-    border:  1px solid black; 
-    color: black;
-    padding: 10px 68px;
-    text-decoration: none;
-    margin: 6px 7px;
-    cursor: pointer;
+.tableOfMeals td {
+    padding: 5px;
+    border: 1px solid black;
 }
+
 
 .delete{
     width:100%
