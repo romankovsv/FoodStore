@@ -27,6 +27,7 @@ public class AddMealServlet extends HttpServlet {
 	private static final String AVAILABLE = "available";
 	private static final String ERROR = "<html><body>Error Some Fields are Empty or Incorrect</body></html>";
 	private static final String SUCCESS = "<html><body>Meal is successfully created and added to store</body></html>";
+	private static final String NOT_ADDED = "<html><body>Meal wasn`t added</body></html";
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -44,12 +45,15 @@ public class AddMealServlet extends HttpServlet {
 		String time = TimeMealUtils.getTime();
 		
 		Meal meal = CheckMealUtils.create(title, description, type, available, price, owner, time);
-		
+		System.out.println(meal);
 		if(meal == null){
 			out.write(ERROR);
 		}else{
-			MealService.add(meal);
-			out.write(SUCCESS);
+			if(MealService.add(meal)){
+				out.write(SUCCESS);
+			}else{
+				out.write(NOT_ADDED);
+			}
 		}	
 	}
 	

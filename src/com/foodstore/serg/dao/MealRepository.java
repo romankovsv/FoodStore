@@ -14,7 +14,6 @@ public class MealRepository {
 		return listOfMeals.add(meal);
 	}
 	
-	
 	public static boolean remove(long id){
 		Iterator<Meal> iter = listOfMeals.iterator();
 		while(iter.hasNext()){
@@ -31,7 +30,6 @@ public class MealRepository {
 	public static List<Meal> getAll() {
 		return listOfMeals;
 	}
-	
 	
 	public static Meal getMealById(long id){
 		for(Meal meal : listOfMeals){
