@@ -29,7 +29,6 @@
     text-align: center;
     padding: 10px 20px;
     text-decoration: none;
-    
 }
 
 .page{
@@ -37,7 +36,6 @@
 }
 
 .inputs  {
- 
     width:200px;
     padding: 8px 10px;
     margin: 8px 0;
@@ -64,11 +62,6 @@
      margin-bottom: 5px;
 }
 
-.image{
-    float:right;
-}
-
-
 .references a:hover, .active {
     border-bottom: 2px solid black;
 }
@@ -85,8 +78,14 @@
 }
 
 .image{
-float: right; 
-clear: left;
-margin-top:6px;
-
+	width:550px;
+	height:300px;
+	float:right;
+	clear:both;
+	margin:5px;
 }
+
+.moto{
+	font-size:22px;
+}
+
