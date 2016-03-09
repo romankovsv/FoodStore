@@ -10,7 +10,6 @@ public class MealRepository {
 	
 	private static List<Meal> listOfMeals = new ArrayList<>();
 	
-	//Make it boolean to return true or false (in case DB errors)
 	public static boolean add(Meal meal){
 		return listOfMeals.add(meal);
 	}
@@ -47,7 +46,6 @@ public class MealRepository {
 		
 		List<Meal> resultOfSearch = new ArrayList<>();
 		
-		//You should not access Repository directly from Service layer. Implement in DAO layer.
 		for(Meal meal: MealRepository.getAll()){
 		
 			if(searchedField.equals(meal.getTitle()) || 

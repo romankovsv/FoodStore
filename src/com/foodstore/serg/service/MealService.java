@@ -9,7 +9,6 @@ import com.foodstore.serg.model.Meal;
 public class MealService {
 	
 	
-	//Return boolean
 	public static boolean add(Meal meal){
 		return MealRepository.add(meal);
 	}

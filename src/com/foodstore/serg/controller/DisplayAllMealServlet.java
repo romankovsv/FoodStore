@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.foodstore.serg.model.Meal;
 import com.foodstore.serg.service.MealService;
 
-//urlPattern could be just /display
+
 @WebServlet(name = "DisplayAllMealServlet", urlPatterns = "/display")
 public class DisplayAllMealServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,7 +26,7 @@ public class DisplayAllMealServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType(CONTENT_TYPE);
 		
-		//Show something in case it is empty
+		
 		List<Meal> meals = MealService.getAll();
 		if(meals.isEmpty()){
 			out.write(NO_PRODUCT);

@@ -43,16 +43,12 @@ public class AddMealServlet extends HttpServlet {
 		
 		String time = TimeMealUtils.getTime();
 		
-		//New Date can be created in CheckUtils.create or in Model constructor (in case it is Adding time, otherwise - ignore)
-		// *****Now Date is created in class TimeUtils****
 		Meal meal = CheckMealUtils.create(title, description, type, available, price, owner, time);
 		
 		if(meal == null){
-			// Constant
 			out.write(ERROR);
 		}else{
 			MealService.add(meal);
-			// Constant
 			out.write(SUCCESS);
 		}	
 	}

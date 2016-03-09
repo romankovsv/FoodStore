@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.foodstore.serg.model.Meal;
 import com.foodstore.serg.service.MealService;
 
-//urlPattern starts with '/'
 @WebServlet(name = "SearchMealServlet", urlPatterns = "/search")
 public class SearchMealServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,15 +23,10 @@ public class SearchMealServlet extends HttpServlet {
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/* Due to specification, you should search object by PARAMETER
-		 *  /search?something 
-		 */
 		
 		PrintWriter out = response.getWriter();
 		response.setContentType(CONTENT_TYPE);
 		
-		//No need to have this parameter
-		//I have save it here to check if it is null
 		String searchedField = request.getParameter("searchedField");
 		
 		if(searchedField == null ||searchedField.isEmpty()){
