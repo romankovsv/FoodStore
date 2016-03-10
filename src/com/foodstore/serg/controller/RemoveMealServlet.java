@@ -2,7 +2,6 @@ package com.foodstore.serg.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,10 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.foodstore.serg.model.Meal;
 import com.foodstore.serg.service.MealService;
-import com.foodstore.serg.utils.CheckMealUtils;
-import com.foodstore.serg.utils.TimeMealUtils;
 
 @WebServlet(name = "RemoveMealServlet", urlPatterns = "/remove")
 public class RemoveMealServlet extends HttpServlet {
@@ -29,7 +25,6 @@ public class RemoveMealServlet extends HttpServlet {
 		
 			PrintWriter out = response.getWriter();
 			response.setContentType(CONTENT_TYPE);
-			
 			
 			try{	
 				long idForRemoving = Long.parseLong(request.getParameter(ID));

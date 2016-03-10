@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.foodstore.serg.model.Meal;
 import com.foodstore.serg.service.MealService;
-import com.foodstore.serg.utils.CheckMealUtils;
-import com.foodstore.serg.utils.TimeMealUtils;
+import com.foodstore.serg.utils.MealUtils;
+import com.foodstore.serg.utils.TimeUtil;
 
 @WebServlet(name = "AddMealServlet", urlPatterns = "/add")
 public class AddMealServlet extends HttpServlet {
@@ -35,17 +35,18 @@ public class AddMealServlet extends HttpServlet {
 		
 		response.setContentType(CONTENT_TYPE);
 		
-		String title = request.getParameter(TITLE);
-		String description = request.getParameter(DESCRIPTION);
-		String type = request.getParameter(TYPE);
-		String price = request.getParameter(PRICE);
-		boolean available = Boolean.parseBoolean(request.getParameter(AVAILABLE));
-		String owner = request.getParameter(OWNER);
+		final String title = request.getParameter(TITLE);
+		final String description = request.getParameter(DESCRIPTION);
+		final String type = request.getParameter(TYPE);
+		final String price = request.getParameter(PRICE);
+		final boolean available = Boolean.parseBoolean(request.getParameter(AVAILABLE));
+		final String owner = request.getParameter(OWNER);
 		
-		String time = TimeMealUtils.getTime();
+		final String time = TimeUtil.getTime();
 		
-		Meal meal = CheckMealUtils.create(title, description, type, available, price, owner, time);
-		System.out.println(meal);
+		final Meal meal = MealUtils.create(title, description, type, available, price, owner, time);
+	
+		
 		if(meal == null){
 			out.write(ERROR);
 		}else{

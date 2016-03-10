@@ -26,12 +26,12 @@ public class DisplayAllMealServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType(CONTENT_TYPE);
 		
-		
 		List<Meal> meals = MealService.getAll();
+		
 		if(meals.isEmpty()){
-			out.write(NO_PRODUCT);
+			out.println(NO_PRODUCT);
 		}else{
-			out.write(LIST_OF_MEALS);
+			out.println(LIST_OF_MEALS);
 			for(Meal meal : MealService.getAll()){
 				out.println(meal);
 			}

@@ -1,10 +1,8 @@
 package com.foodstore.serg.model;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
-import com.foodstore.serg.utils.TimeMealUtils;
-
+import com.foodstore.serg.utils.TimeUtil;
 
 public class Meal {
 	
@@ -18,7 +16,7 @@ public class Meal {
 	private String time;	
 	
 	
-	private static long countId = 1;
+	private static long countId = 0;
 	
 	public Meal(String title, String description, String type, boolean available, String price,
 			String owner){
@@ -28,7 +26,7 @@ public class Meal {
 		this.available = available;
 		this.price = new BigDecimal(price);
 		this.owner = owner;
-		this.time = TimeMealUtils.getTime();
+		this.time = TimeUtil.getTime();
 		id = setId();
 	}
 	
@@ -83,29 +81,10 @@ public class Meal {
 		return time;
 	}
 	
-	
 	@Override
 	public String toString(){
 		return "{"+"Title="+title+" Type="+type+" Price="+price+
 				" Owner="+owner+" is Available="+available+"}";
 	}
-	
-	@Override
-	public boolean equals(Object obj){
-		if(obj instanceof Meal){
-			Meal otherMeal = (Meal)obj;
-			return this.title.equals(otherMeal.title) && this.type.equals(otherMeal.type)
-					&& this.price==otherMeal.price && this.owner.equals(otherMeal.owner) 
-					&& this.available == otherMeal.available;
-		}
-		return false;
-	}
-	
-	@Override
-	public int hashCode(){
-		return Objects.hash(title,type,price,owner,available);
-	}
-
-	
 	
 }

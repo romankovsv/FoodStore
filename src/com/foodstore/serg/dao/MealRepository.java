@@ -44,12 +44,12 @@ public class MealRepository {
 		
 		List<Meal> resultOfSearch = new ArrayList<>();
 		
-		for(Meal meal: MealRepository.getAll()){
-		
+		for(Meal meal: listOfMeals){
 			if(searchedField.equals(meal.getTitle()) || 
 					searchedField.equals(meal.getDescription()) || 
 					searchedField.equals(meal.getOwner())||
 					searchedField.equals(meal.getType()) ||
+					searchedField.equals(meal.getId())||
 					searchedField.equals(String.valueOf(meal.getPrice())) ||
 					searchedField.equals(String.valueOf(meal.getTime())) || 
 					searchedField.equals(String.valueOf(meal.isAvailable()))) {

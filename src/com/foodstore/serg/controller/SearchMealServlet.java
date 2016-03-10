@@ -17,22 +17,22 @@ import com.foodstore.serg.service.MealService;
 public class SearchMealServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String CONTENT_TYPE = "text/html";
-	private static final String NO_SUCH_MEAL = "<html><body>There are no such meal inour store<html><body>";
-	private static final String FOUND_MEAL = "<html><body>We have found meal<body></html>";
+	private static final String NO_SUCH_MEAL = "<html><body>There are no such meal in our store<html><body>";
+	private static final String FOUND_MEAL = "<html><body>We have found meal:<body></html>";
 	private static final String SEARCH_IS_EMPTY = "<html><body>Search is empty<body></html>";
+	private static final String SEARCH = "search";
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		
 		PrintWriter out = response.getWriter();
 		response.setContentType(CONTENT_TYPE);
 		
-		String searchedField = request.getParameter("searchedField");
+		final String search = request.getParameter(SEARCH);
 		
-		if(searchedField == null ||searchedField.isEmpty()){
+		if(search == null ||search.isEmpty()){
 			out.write(SEARCH_IS_EMPTY);
 		}else{
-			List<Meal> resultList = MealService.search(searchedField);
+			List<Meal> resultList = MealService.search(search);
 			
 			if(resultList.isEmpty()){
 				out.println(NO_SUCH_MEAL);
