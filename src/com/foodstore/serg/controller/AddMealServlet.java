@@ -46,7 +46,6 @@ public class AddMealServlet extends HttpServlet {
 		
 		final Meal meal = MealUtils.create(title, description, type, available, price, owner, time);
 	
-		System.out.println(meal);
 		if(meal == null){
 			out.write(ERROR);
 		}else{
