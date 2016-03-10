@@ -12,9 +12,8 @@ public class MainCourse extends Meal{
 		this.methodOfCooking = methodOfCooking;
 	}
 	
-	public MainCourse(String title, String description, String type, boolean available, String price,
-			String owner, String methodOfCooking){
-		super(title,description,type, available, price,owner);
-		this.methodOfCooking = methodOfCooking;
+	public MainCourse(MainCourseBuilder builder){
+		super(builder);
+		this.methodOfCooking = builder.getMethodOfCooking();
 	}
 }

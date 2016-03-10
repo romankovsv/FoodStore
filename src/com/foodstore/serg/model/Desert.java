@@ -8,15 +8,13 @@ public class Desert extends Meal{
 		return withSugar;
 	}
 
-	public void setWithSugar(boolean withSugar) {
+	public void withSugar(final boolean withSugar) {
 		this.withSugar = withSugar;
 	}
 	
-	
-	public Desert(String title, String description, String type, boolean available, String price,
-			String owner,boolean withSugar){
-		super(title,description,type, available, price,owner);
-		this.withSugar = withSugar;
+	public Desert(DesertBuilder builder){
+		super(builder);
+		this.withSugar = builder.isWithSugar();
 	}
 	
 }

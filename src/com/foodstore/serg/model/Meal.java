@@ -2,9 +2,7 @@ package com.foodstore.serg.model;
 
 import java.math.BigDecimal;
 
-import com.foodstore.serg.utils.TimeUtil;
-
-public class Meal {
+public abstract class  Meal {
 	
 	private long id;
 	private String title;
@@ -18,20 +16,19 @@ public class Meal {
 	
 	private static long countId = 0;
 	
-	public Meal(String title, String description, String type, boolean available, String price,
-			String owner){
-		this.title = title;
-		this.description= description;
-		this.type = type;
-		this.available = available;
-		this.price = new BigDecimal(price);
-		this.owner = owner;
-		this.time = TimeUtil.getTime();
-		id = setId();
+	public Meal(MealBuilder builder){
+		this.id = builder.getId();
+		this.title = builder.getTitle();
+		this.description = builder.getDescription();
+		this.type = builder.getType();
+		this.available = builder.isAvailable();
+		this.price = builder.getPrice();
+		this.owner = builder.getOwner();
+		this.time = builder.getTime();
 	}
 	
 
-	private static long setId(){
+	static long setId(){
 		countId++;
 		return countId;
 	}

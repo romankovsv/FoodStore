@@ -1,6 +1,9 @@
 package com.foodstore.serg.utils;
 
+import com.foodstore.serg.model.DesertBuilder;
+import com.foodstore.serg.model.MainCourseBuilder;
 import com.foodstore.serg.model.Meal;
+import com.foodstore.serg.model.SoupBuilder;
 
 public class MealUtils {
 	
@@ -15,9 +18,47 @@ public class MealUtils {
 	public static Meal create(String title, String description, String type, 
 			boolean available, String price, String owner, String time){
 		
+		Meal meal = null;
+		
 		if(checkParams(title, description, type, available, price, owner, time)){
-			return new Meal(title, description, type, available, price, owner);
+			
+			if(type.equals("soup")){
+				meal = new SoupBuilder()
+						.title(title)
+						.type(type)
+						.description(description)
+						.available(available)
+						.price(price)
+						.owner(owner)
+						.time()
+						.build();
+			}else if(type.equals("mainCourse")){
+				meal = new MainCourseBuilder()
+						.title(title)
+						.description(description)
+						.available(available)
+						.type(type)
+						.price(price)
+						.owner(owner)
+						.time()
+						.build();
+			}else if(type.equals("desert")){
+				meal = new DesertBuilder()
+						.title(title)
+						.type(type)
+						.description(description)
+						.available(available)
+						.price(price)
+						.owner(owner)
+						.time()
+						.build();
+						
+			} else{
+				meal = null;
+			}
+			return meal;
 		}
 		return null;
 	}
+	
 }
