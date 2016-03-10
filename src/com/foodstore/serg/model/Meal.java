@@ -80,8 +80,8 @@ public abstract class  Meal {
 	
 	@Override
 	public String toString(){
-		return "{"+"Title="+title+" Type="+type+" Price="+price+
-				" Owner="+owner+" is Available="+available+"}";
+		return "Meal{"+"Id="+id+", Title="+title+", Type="+type+", Price="+price+
+				", Owner="+owner+", is available="+available+"}";
 	}
 	
 }

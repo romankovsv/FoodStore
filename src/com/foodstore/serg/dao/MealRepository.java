@@ -10,11 +10,11 @@ public class MealRepository {
 	
 	private static List<Meal> listOfMeals = new ArrayList<>();
 	
-	public static boolean add(Meal meal){
+	public static boolean add(final Meal meal){
 		return listOfMeals.add(meal);
 	}
 	
-	public static boolean remove(long id){
+	public static boolean remove(final long id){
 		Iterator<Meal> iter = listOfMeals.iterator();
 		while(iter.hasNext()){
 			Meal meal = iter.next();
@@ -31,7 +31,7 @@ public class MealRepository {
 		return listOfMeals;
 	}
 	
-	public static Meal getMealById(long id){
+	public static Meal getMealById(final long id){
 		for(Meal meal : listOfMeals){
 			if(meal.getId() == id){
 				return meal;
@@ -40,19 +40,19 @@ public class MealRepository {
 		return null;
 	}
 	
-	public static List<Meal> search(String searchedField){
+	public static List<Meal> search(final String searchedField){
 		
 		List<Meal> resultOfSearch = new ArrayList<>();
 		
 		for(Meal meal: listOfMeals){
-			if(searchedField.equals(meal.getTitle()) || 
-					searchedField.equals(meal.getDescription()) || 
-					searchedField.equals(meal.getOwner())||
-					searchedField.equals(meal.getType()) ||
-					searchedField.equals(meal.getId())||
-					searchedField.equals(String.valueOf(meal.getPrice())) ||
-					searchedField.equals(String.valueOf(meal.getTime())) || 
-					searchedField.equals(String.valueOf(meal.isAvailable()))) {
+			if(searchedField.toLowerCase().equals(meal.getTitle().toLowerCase()) || 
+					searchedField.toLowerCase().equals(meal.getDescription().toLowerCase()) || 
+					searchedField.toLowerCase().equals(meal.getOwner().toLowerCase())||
+					searchedField.toLowerCase().equals(meal.getType().toLowerCase()) ||
+					searchedField.toLowerCase().equals(String.valueOf(meal.getId()).toLowerCase())||
+					searchedField.toLowerCase().equals(String.valueOf(meal.getPrice()).toLowerCase()) ||
+					searchedField.toLowerCase().equals(String.valueOf(meal.getTime()).toLowerCase()) || 
+					searchedField.toLowerCase().equals(String.valueOf(meal.isAvailable()).toLowerCase())) {
 				
 				resultOfSearch.add(meal);
 			}

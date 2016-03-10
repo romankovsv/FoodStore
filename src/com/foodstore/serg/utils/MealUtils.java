@@ -24,6 +24,7 @@ public class MealUtils {
 			
 			if(type.equals("soup")){
 				meal = new SoupBuilder()
+						.id()
 						.title(title)
 						.type(type)
 						.description(description)
@@ -34,6 +35,7 @@ public class MealUtils {
 						.build();
 			}else if(type.equals("mainCourse")){
 				meal = new MainCourseBuilder()
+						.id()
 						.title(title)
 						.description(description)
 						.available(available)
@@ -44,6 +46,7 @@ public class MealUtils {
 						.build();
 			}else if(type.equals("desert")){
 				meal = new DesertBuilder()
+						.id()
 						.title(title)
 						.type(type)
 						.description(description)
@@ -52,13 +55,13 @@ public class MealUtils {
 						.owner(owner)
 						.time()
 						.build();
-						
 			} else{
 				meal = null;
 			}
+			
 			return meal;
 		}
-		return null;
+		return meal;
 	}
 	
 }
