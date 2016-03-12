@@ -1,6 +1,11 @@
 package com.foodstore.serg.model;
 
 public class Desert extends Meal{
+	
+	public Desert(DesertBuilder builder){
+		super(builder);
+		this.withSugar = builder.isWithSugar();
+	}
 
 	private boolean withSugar;
 
@@ -12,9 +17,6 @@ public class Desert extends Meal{
 		this.withSugar = withSugar;
 	}
 	
-	public Desert(DesertBuilder builder){
-		super(builder);
-		this.withSugar = builder.isWithSugar();
-	}
+
 	
 }

@@ -58,10 +58,6 @@
     background-color:#b0b4b0;
 }
 
-.available{
-     margin-bottom: 5px;
-}
-
 .references a:hover, .active {
     border-bottom: 2px solid black;
 }
@@ -73,13 +69,24 @@
     height:32px;
 }
 
-
-.image{
-	width:600px;
-	height:350px;
+.screenshot1{
+	width:550px;
+	height:510px;
 	float:right;
 	clear:both;
 	margin:5px;
+	background-image: url("../images/screen-add.png"); 
+	background-size: cover;
+}
+
+.screenshot2{
+	width:550px;
+	height:250px;
+	float:right;
+	clear:both;
+	margin:5px;
+	background-image: url("../images/screen-dashboard.png");  
+		background-size: cover;
 }
 
 .moto{

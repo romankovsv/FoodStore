@@ -86,16 +86,13 @@
 }
 
 .tableOfMeals tr{
-     padding: 10px;
 	font-weight: normal;
       border: 1px solid black;
 }
 
 .tableOfMeals td {
-    padding: 5px;
     border: 1px solid black;
 }
-
 
 .delete{
     width:100%
