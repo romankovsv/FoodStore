@@ -42,9 +42,9 @@ public class AddMealServlet extends HttpServlet {
 		final boolean available = Boolean.parseBoolean(request.getParameter(AVAILABLE));
 		final String owner = request.getParameter(OWNER);
 		
-		final String time = TimeUtil.getTime();
+	
 		
-		final Meal meal = MealUtils.create(title, description, type, available, price, owner, time);
+		final Meal meal = MealUtils.create(title, description, type, available, price, owner);
 	
 		if(meal == null){
 			out.write(ERROR);

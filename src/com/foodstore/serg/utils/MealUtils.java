@@ -8,19 +8,19 @@ import com.foodstore.serg.model.SoupBuilder;
 public class MealUtils {
 	
 	private static boolean checkParams(String title, String description, String type, 
-			Boolean available, String price, String owner, String time){
+			Boolean available, String price, String owner){
 		
 		return !(title == null || title.isEmpty() || description == null || description.isEmpty()||
 				type == null ||type.isEmpty() ||owner == null ||owner.isEmpty() || available == null ||
-				price ==  null || price.isEmpty() || time == null || time.isEmpty());
+				price ==  null || price.isEmpty());
 	}
 	
 	public static Meal create(String title, String description, String type, 
-			boolean available, String price, String owner, String time){
+			boolean available, String price, String owner){
 		
 		Meal meal = null;
 		
-		if(checkParams(title, description, type, available, price, owner, time)){
+		if(checkParams(title, description, type, available, price, owner)){
 			
 			if(type.equals("soup")){
 				meal = new SoupBuilder()
