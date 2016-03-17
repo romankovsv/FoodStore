@@ -20,6 +20,8 @@ public class MealUtils {
 		
 		Meal meal = null;
 		
+		System.out.println("hello");
+		
 		if(checkParams(title, description, type, available, price, owner)){
 			
 			if(type.equals("soup")){
