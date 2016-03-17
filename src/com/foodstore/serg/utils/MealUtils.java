@@ -1,7 +1,6 @@
 package com.foodstore.serg.utils;
 
 import com.foodstore.serg.model.Meal;
-import com.foodstore.serg.model.MealBuilder;
 
 public class MealUtils {
 	
@@ -19,8 +18,7 @@ public class MealUtils {
 		Meal meal = null;
 		
 		if(checkParams(title, description, type, available, price, owner)){
-		
-				meal = new MealBuilder()
+				meal = new Meal.MealBuilder()
 						.id()
 						.title(title)
 						.type(type)
@@ -29,9 +27,6 @@ public class MealUtils {
 						.price(price)
 						.owner(owner)
 						.build();
-			
-		
-			return meal;
 		}
 		return meal;
 	}
