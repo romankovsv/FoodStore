@@ -11,7 +11,7 @@ public class TimeUtil {
 		
 		 final SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT);
 	     final String time = format.format(new Date());
-		
+		System.out.println("Hello");
 		return time;
 	}
 }
