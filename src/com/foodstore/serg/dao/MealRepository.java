@@ -50,8 +50,7 @@ public class MealRepository {
 					searchedField.toLowerCase().equals(meal.getOwner().toLowerCase())||
 					searchedField.toLowerCase().equals(meal.getType().toLowerCase()) ||
 					searchedField.toLowerCase().equals(String.valueOf(meal.getId()).toLowerCase())||
-					searchedField.toLowerCase().equals(String.valueOf(meal.getPrice()).toLowerCase()) ||
-					searchedField.toLowerCase().equals(String.valueOf(meal.getTime()).toLowerCase()) || 
+					searchedField.toLowerCase().equals(String.valueOf(meal.getPrice()).toLowerCase()) || 
 					searchedField.toLowerCase().equals(String.valueOf(meal.isAvailable()).toLowerCase())) {
 				
 				resultOfSearch.add(meal);

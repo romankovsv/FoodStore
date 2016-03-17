@@ -2,7 +2,7 @@ package com.foodstore.serg.model;
 
 import java.math.BigDecimal;
 
-public abstract class  Meal {
+public class  Meal {
 	
 	private long id;
 	private String title;
@@ -11,7 +11,7 @@ public abstract class  Meal {
 	private Boolean available;
 	private BigDecimal price;
 	private String owner;
-	private String time;	
+		
 	
 	
 	private static long countId = 0;
@@ -24,7 +24,6 @@ public abstract class  Meal {
 		this.available = builder.isAvailable();
 		this.price = builder.getPrice();
 		this.owner = builder.getOwner();
-		this.time = builder.getTime();
 	}
 	
 
@@ -74,9 +73,7 @@ public abstract class  Meal {
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
-	public String getTime() {
-		return time;
-	}
+
 	
 	@Override
 	public String toString(){

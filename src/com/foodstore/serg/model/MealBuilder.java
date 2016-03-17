@@ -2,8 +2,6 @@ package com.foodstore.serg.model;
 
 import java.math.BigDecimal;
 
-import com.foodstore.serg.utils.TimeUtil;
-
 public class MealBuilder {
 	
 	protected long id;
@@ -13,7 +11,7 @@ public class MealBuilder {
 	protected Boolean available;
 	protected BigDecimal price;
 	protected String owner;
-	protected String time;
+
 	
 	public long getId() {
 		return id;
@@ -36,9 +34,7 @@ public class MealBuilder {
 	public String getOwner() {
 		return owner;
 	}
-	public String getTime() {
-		return time;
-	}	
+		
 	
 	public MealBuilder title(final String  title){
 		this.title = title;
@@ -65,10 +61,6 @@ public class MealBuilder {
 		return this;
 	}
 	
-	public MealBuilder time(){
-		this.time = TimeUtil.getTime();
-		return this;
-	}
 	
 	public MealBuilder owner(final String  owner){
 		this.owner = owner;
@@ -78,6 +70,10 @@ public class MealBuilder {
 	public MealBuilder id(){
 		this.id = Meal.setId();
 		return this;
+	}
+	
+	public Meal build(){
+		return new Meal(this);
 	}
 	
 	
