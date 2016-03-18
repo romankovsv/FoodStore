@@ -45,13 +45,13 @@ public class MealRepository {
 		List<Meal> resultOfSearch = new ArrayList<>();
 		
 		for(Meal meal: listOfMeals){
-			if(searchedField.toLowerCase().equals(meal.getTitle().toLowerCase()) || 
-					searchedField.toLowerCase().equals(meal.getDescription().toLowerCase()) || 
-					searchedField.toLowerCase().equals(meal.getOwner().toLowerCase())||
-					searchedField.toLowerCase().equals(meal.getType().toLowerCase()) ||
-					searchedField.toLowerCase().equals(String.valueOf(meal.getId()).toLowerCase())||
-					searchedField.toLowerCase().equals(String.valueOf(meal.getPrice()).toLowerCase()) || 
-					searchedField.toLowerCase().equals(String.valueOf(meal.isAvailable()).toLowerCase())) {
+			if(searchedField.equalsIgnoreCase(meal.getTitle()) || 
+					searchedField.equalsIgnoreCase(meal.getDescription()) || 
+					searchedField.equalsIgnoreCase(meal.getOwner())||
+					searchedField.equalsIgnoreCase(meal.getType()) ||
+					searchedField.equalsIgnoreCase(String.valueOf(meal.getId()))||
+					searchedField.equalsIgnoreCase(String.valueOf(meal.getPrice())) || 
+					searchedField.equalsIgnoreCase(String.valueOf(meal.isAvailable()))) {
 				
 				resultOfSearch.add(meal);
 			}
