@@ -14,11 +14,6 @@ public class  Meal {
 		
 	private static long countId = 0;
 	
-	private static long setId(){
-		countId++;
-		return countId;
-	}
-	
 	public static class MealBuilder{
 		private long id;
 		private String title;
@@ -64,7 +59,7 @@ public class  Meal {
 		}
 		
 		public MealBuilder id(){
-			this.id = setId();
+			this.id = ++countId;
 			return this;
 		}
 		
