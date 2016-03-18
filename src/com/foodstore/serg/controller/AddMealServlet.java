@@ -12,22 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import com.foodstore.serg.model.Meal;
 import com.foodstore.serg.service.MealService;
 import com.foodstore.serg.utils.MealUtils;
-
+import static com.foodstore.serg.constants.ServletConstants.*;
 
 @WebServlet(name = "AddMealServlet", urlPatterns = "/add")
 public class AddMealServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;   
-	private static final String CONTENT_TYPE = "text/html";
-	private static final String TITLE = "title";
-	private static final String DESCRIPTION = "description";
-	private static final String TYPE = "type";
-	private static final String OWNER = "owner";
-	private static final String PRICE = "price";
-	private static final String AVAILABLE = "available";
-	private static final String ERROR = "<html><body>Error Some Fields are Empty or Incorrect</body></html>";
-	private static final String SUCCESS = "<html><body>Meal is successfully created and added to store</body></html>";
-	private static final String NOT_ADDED = "<html><body>Meal wasn`t added</body></html";
+	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

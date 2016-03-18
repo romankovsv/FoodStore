@@ -12,14 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.foodstore.serg.model.Meal;
 import com.foodstore.serg.service.MealService;
-
+import static com.foodstore.serg.constants.ServletConstants.*;
 
 @WebServlet(name = "DisplayAllMealServlet", urlPatterns = "/display")
 public class DisplayAllMealServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String CONTENT_TYPE = "text/html";
-	private static final String NO_PRODUCT = "<html>There are no meals int our store</html>";
-	private static final String LIST_OF_MEALS = "<html>Our Meals:</html>";
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

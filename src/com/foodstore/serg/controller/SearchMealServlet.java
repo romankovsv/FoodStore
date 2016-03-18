@@ -1,6 +1,7 @@
 package com.foodstore.serg.controller;
 
 import java.io.IOException;
+import static com.foodstore.serg.constants.ServletConstants.*;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -16,11 +17,6 @@ import com.foodstore.serg.service.MealService;
 @WebServlet(name = "SearchMealServlet", urlPatterns = "/search")
 public class SearchMealServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String CONTENT_TYPE = "text/html";
-	private static final String NO_SUCH_MEAL = "<html><body>There are no such meal in our store<html><body>";
-	private static final String FOUND_MEAL = "<html><body>We have found meal:<body></html>";
-	private static final String SEARCH_IS_EMPTY = "<html><body>Search is empty<body></html>";
-	private static final String SEARCH = "search";
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
