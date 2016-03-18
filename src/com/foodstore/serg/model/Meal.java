@@ -4,24 +4,19 @@ import java.math.BigDecimal;
 
 public class  Meal {
 	
-	private long id;
-	private String title;
-	private String description;
-	private String type;
-	private Boolean available;
-	private BigDecimal price;
-	private String owner;
+	private final long id;
+	private final String title;
+	private final String description;
+	private final String type;
+	private final Boolean available;
+	private final BigDecimal price;
+	private final String owner;
 		
 	private static long countId = 0;
 	
-	public Meal(MealBuilder builder){
-		this.id = builder.id;
-		this.title = builder.title;
-		this.description = builder.description;
-		this.type = builder.type;
-		this.available = builder.available;
-		this.price = builder.price;
-		this.owner = builder.owner;
+	private static long setId(){
+		countId++;
+		return countId;
 	}
 	
 	public static class MealBuilder{
@@ -79,10 +74,15 @@ public class  Meal {
 		
 		
 	}
-
-	static long setId(){
-		countId++;
-		return countId;
+	
+	private Meal(MealBuilder builder){
+		this.id = builder.id;
+		this.title = builder.title;
+		this.description = builder.description;
+		this.type = builder.type;
+		this.available = builder.available;
+		this.price = builder.price;
+		this.owner = builder.owner;
 	}
 	
 	public long getId(){
