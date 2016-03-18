@@ -116,8 +116,21 @@ public class  Meal {
 	
 	@Override
 	public String toString(){
-		return "Meal{"+"Id="+id+", Title="+title+", Type="+type+", Price="+price+
-				", Owner="+owner+", is available="+available+"}";
+		StringBuilder strBuilder = new StringBuilder();
+		
+		return	strBuilder.append("Meal{ Id=")
+				.append(id)
+				.append(", Title=")
+				.append(title)
+				.append(", Type=")
+				.append(type)
+				.append(", Price=")
+				.append(price)
+				.append(", Owner=")
+				.append(owner)
+				.append(", is available=")
+				.append(available)
+				.append("}")
+				.toString();
 	}
-	
 }
