@@ -14,6 +14,17 @@ public class  Meal {
 		
 	private static long countId = 0;
 	
+	private Meal(MealBuilder builder){
+		this.id = builder.id;
+		this.title = builder.title;
+		this.description = builder.description;
+		this.type = builder.type;
+		this.available = builder.available;
+		this.price = builder.price;
+		this.owner = builder.owner;
+	}
+	
+	
 	public static class MealBuilder{
 		private long id;
 		private String title;
@@ -52,7 +63,6 @@ public class  Meal {
 			return this;
 		}
 		
-		
 		public MealBuilder owner(final String  owner){
 			this.owner = owner;
 			return this;
@@ -66,19 +76,8 @@ public class  Meal {
 		public Meal build(){
 			return new Meal(this);
 		}
-		
-		
 	}
 	
-	private Meal(MealBuilder builder){
-		this.id = builder.id;
-		this.title = builder.title;
-		this.description = builder.description;
-		this.type = builder.type;
-		this.available = builder.available;
-		this.price = builder.price;
-		this.owner = builder.owner;
-	}
 	
 	public long getId(){
 		return id;
