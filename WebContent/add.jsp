@@ -8,9 +8,9 @@
     
     <header class="topbar">
         <ul>
-            <li><a class="references" href="index.html">Home</a></li>
-            <li><a href="add.html" class="active">Add</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a class="references" href="index.jsp">Home</a></li>
+            <li><a href="add.jsp" class="active">Add</a></li>
+            <li><a href="dashboard.jsp">Dashboard</a></li>
         </ul>
 	</header>
   

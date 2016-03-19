@@ -8,14 +8,9 @@
     
     <header class="topbar">
         <ul>
-            <li>
-                <a href="index.html" class="active">Home</a>
-            </li>
-            <li>
-                <a href="add.html">Add</a></li>
-            <li>
-                <a href="dashboard.html">Dashboard</a>
-            </li>
+           <li><a class="active href="index.jsp">Home</a></li>
+            <li><a href="add.jsp" >Add</a></li>
+            <li><a href="dashboard.jsp">Dashboard</a></li>
         </ul>
 	</header>
 
