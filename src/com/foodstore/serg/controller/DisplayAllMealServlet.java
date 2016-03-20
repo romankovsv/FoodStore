@@ -24,7 +24,7 @@ public class DisplayAllMealServlet extends HttpServlet {
 		response.setContentType(CONTENT_TYPE);
 		
 		List<Meal> meals = MealService.getAll();
-		
+		/*
 		if(meals.isEmpty()){
 			out.println(NO_PRODUCT);
 		}else{
@@ -32,8 +32,12 @@ public class DisplayAllMealServlet extends HttpServlet {
 			for(Meal meal : MealService.getAll()){
 				out.println(meal);
 			}
-		}
+		}*/
 		
+		request.setAttribute("food", meals);
+		
+		getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
+		 
 	}
 
 	

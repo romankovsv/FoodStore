@@ -102,5 +102,14 @@
     padding: 0;
 }
 
+.success_message{
+	color: green;
+	font-size:26px;
+}
+
+.unsuccess_message{
+	color: red;
+	font-size:26px;
+}
 
 

@@ -26,19 +26,19 @@ public class SearchMealServlet extends HttpServlet {
 		final String search = request.getParameter(SEARCH);
 		
 		if(search == null ||search.isEmpty()){
-			out.write(SEARCH_IS_EMPTY);
-		}else{
+			request.setAttribute("message", SEARCH_IS_EMPTY);
+		}else{	
 			List<Meal> resultList = MealService.search(search);
-			
+			request.setAttribute("food", resultList);
+		
 			if(resultList.isEmpty()){
-				out.println(NO_SUCH_MEAL);
+				request.setAttribute("message", NO_SUCH_MEAL);
 			}else{
-				out.println(FOUND_MEAL);
-				for(Meal meal:resultList){
-					out.println(meal);
-				}
+				request.setAttribute("success_message", FOUND_MEAL);
 			}
 		}
+		
+		getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

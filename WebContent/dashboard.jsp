@@ -3,6 +3,7 @@
       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Dashboard</title>
@@ -16,25 +17,27 @@
             <li><a class="active href="dashboard.jsp">Dashboard</a></li>
         </ul>
     </header>
-<br>
+	<br/>
     
     <body class="body">
         <form action="search" method="get" class="inputs">
           <table class="input"> 
               <tr>
-            <td> <input 
-                    type="text" class="search_field" name="search" placeholder="Search field"/>
-                  </td>
-             <td> <input type="submit"
-                    class="search_button"
-                    name="search_button" value="Search"/>
-                 </td>
+            	<td> 
+            		<input type="text" class="search_field" name="search" placeholder="Search field"/>
+                </td>
+             	<td> 
+             		<input type="submit" class="search_button" name="search_button" value="Search"/>
+                </td>
               </tr>
             </table>
         </form>
         
-
-        
+        		<div class="unsuccess_message">${message}</div>
+        		
+        		<div class="success_message">${success_message}</div>
+        		</br>
+        		
 <table class="tableOfMeals" >
   <tr>
     <th>Id</th>
@@ -44,28 +47,27 @@
     <th>Description</th>
     <th>Available</th>
     <th>Owner</th>
-    <th>Time</th>
     <th></th>
   </tr>
  
-
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
- 
-      <td class="columnForDelete">
-      	<form action="delete" method="get">
-          <input type="submit" class="delete" value="Delete" />
-        </form>
-      </td>
-  </tr>
+ <c:forEach items="${requestScope.food}" var="food">
+  	<tr>
+    	<td>${food.id} </td>
+    	<td>${food.title} </td>
+    	<td>${food.type}</td>
+    	<td>${food.price}</td>
+    	<td>${food.description}</td>
+    	<td>${food.available}</td>
+    	<td>${food.owner}</td>
   
-</table> 
-</body>   
+      	<td class="columnForDelete">
+      		<form action="delete" method="get">
+          	<input type="submit" class="delete" value="Delete" />
+        	</form>
+      	</td>
+  	</tr>
+  </c:forEach>
+  
+		</table> 
+	</body>   
 </html>
