@@ -30,17 +30,14 @@ public class DisplayAllMealServlet extends HttpServlet {
 		response.setContentType(CONTENT_TYPE);
 		
 		List<Meal> meals = MealService.getAll();
-		/*
-		if(meals.isEmpty()){
-			out.println(NO_PRODUCT);
-		}else{
-			out.println(LIST_OF_MEALS);
-			for(Meal meal : MealService.getAll()){
-				out.println(meal);
-			}
-		}*/
 		
-		request.setAttribute("food", meals);
+		if(meals.isEmpty()){
+			request.setAttribute("message", NO_PRODUCT);
+		}else{
+			request.setAttribute("success_message", LIST_OF_MEALS);
+			request.setAttribute("food", meals);
+			
+		}
 		
 		getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
 	}

@@ -22,7 +22,7 @@
 	
 	<body class="page">
 		<section class="main_field">
-		<form action="add" method="get">
+		<form action="add" method="post">
 			<table class="fields">
                 
 				<tr>

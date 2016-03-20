@@ -69,7 +69,7 @@
     height:32px;
 }
 
-.screenshot1{
+.screen-add{
 	width:550px;
 	height:510px;
 	float:right;
@@ -79,7 +79,7 @@
 	background-size: cover;
 }
 
-.screenshot2{
+.screen-dashboard{
 	width:550px;
 	height:250px;
 	float:right;

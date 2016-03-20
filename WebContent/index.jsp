@@ -18,9 +18,7 @@
 	</header>
 
     <body class="indextext"> 
-         <!-- set image in css file -->
-        <!-- change image name to screen-add no Java style here :) -->
-    	<div class="screenshot1"></div><br>
+    	<div class="screen-add"></div><br>
     	
         <h2>About</h2>
 		
@@ -37,10 +35,8 @@
            
             </br></br></br>
             <hr>
-            <!-- set image in css file -->
-            <!-- change image name to screen-dashboard no Java style here :) --> 
-            <div class="screenshot2">
-            </div>
+          
+            <div class="screen-dashboard"></div>
             
           	You can search your meal:
             just enter any name and click Search.</br></br>

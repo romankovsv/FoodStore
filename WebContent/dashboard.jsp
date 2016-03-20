@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
       <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+      <%@ page import="com.foodstore.serg.model.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -14,13 +15,13 @@
         <ul>
           	<li><a  href="index.jsp">Home</a></li>
             <li><a href="add.jsp" >Add</a></li>
-            <li><a class="active href="dashboard.jsp">Dashboard</a></li>
+            <li><a class="active" href="dashboard.jsp">Dashboard</a></li>
         </ul>
     </header>
 	<br/>
     
     <body class="body">
-        <form action="search" method="get" class="inputs">
+        <form action="search" method="post" class="inputs">
           <table class="input"> 
               <tr>
             	<td> 
@@ -61,7 +62,8 @@
     	<td>${food.owner}</td>
   
       	<td class="columnForDelete">
-      		<form action="delete" method="get">
+      		<form action="remove" method="post">
+      		 <input type="hidden" name="id" value="${food.id}" >
           	<input type="submit" class="delete" value="Delete" />
         	</form>
       	</td>
