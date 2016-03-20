@@ -18,25 +18,26 @@ public class RemoveMealServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-			PrintWriter out = response.getWriter();
-			response.setContentType(CONTENT_TYPE);
-			
-			try{	
-				long idForRemoving = Long.parseLong(request.getParameter(ID));
-				if(MealService.remove(idForRemoving)){
-					out.write(SUCCESS_DELETE);
-				}else{
-					out.write(NOT_DELETED);
-				}
-			}catch(NumberFormatException e){
-				out.write(INCORRECT_INPUT);
-			}catch(Exception e){
-				out.write(EXCEPTION);
-			}
+		doPost(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		
+		PrintWriter out = response.getWriter();
+		response.setContentType(CONTENT_TYPE);
+		
+		try{	
+			long idForRemoving = Long.parseLong(request.getParameter(ID));
+			if(MealService.remove(idForRemoving)){
+				out.write(SUCCESS_DELETE);
+			}else{
+				out.write(NOT_DELETED);
+			}
+		}catch(NumberFormatException e){
+			out.write(INCORRECT_INPUT);
+		}catch(Exception e){
+			out.write(EXCEPTION);
+		}
 	}
 
 }

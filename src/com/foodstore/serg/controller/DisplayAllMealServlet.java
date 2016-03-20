@@ -20,6 +20,12 @@ public class DisplayAllMealServlet extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		doPost(request, response);
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		PrintWriter out = response.getWriter();
 		response.setContentType(CONTENT_TYPE);
 		
@@ -37,12 +43,6 @@ public class DisplayAllMealServlet extends HttpServlet {
 		request.setAttribute("food", meals);
 		
 		getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
-		 
-	}
-
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }
