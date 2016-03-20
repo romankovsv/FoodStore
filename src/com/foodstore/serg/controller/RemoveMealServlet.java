@@ -2,6 +2,7 @@ package com.foodstore.serg.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.foodstore.serg.model.Meal;
 import com.foodstore.serg.service.MealService;
 import static com.foodstore.serg.constants.ServletConstants.*;
 
@@ -18,7 +20,7 @@ public class RemoveMealServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		doPost(request, response);
+		response.sendRedirect("dashboard.jsp");
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,18 +28,35 @@ public class RemoveMealServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType(CONTENT_TYPE);
 		
+		/*
+		 * if(search == null ||search.isEmpty()){
+			request.setAttribute("message", SEARCH_IS_EMPTY);
+		}else{	
+			List<Meal> resultList = MealService.search(search);
+			request.setAttribute("food", resultList);
+		
+			if(resultList.isEmpty()){
+				request.setAttribute("message", NO_SUCH_MEAL);
+			}else{
+				request.setAttribute("success_message", FOUND_MEAL);
+			}
+		}
+		 */
+		
 		try{	
 			long idForRemoving = Long.parseLong(request.getParameter(ID));
 			if(MealService.remove(idForRemoving)){
-				out.write(SUCCESS_DELETE);
+				request.setAttribute("success_message", SUCCESS_DELETE);
 			}else{
-				out.write(NOT_DELETED);
+				request.setAttribute("message", NOT_DELETED);
 			}
 		}catch(NumberFormatException e){
-			out.write(INCORRECT_INPUT);
+			request.setAttribute("message",INCORRECT_INPUT);
 		}catch(Exception e){
-			out.write(EXCEPTION);
+			request.setAttribute("message", EXCEPTION);
 		}
+		
+		getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
 	}
 
 }
