@@ -36,8 +36,6 @@ public class AddMealServlet extends HttpServlet {
 		final boolean available = Boolean.parseBoolean(request.getParameter(AVAILABLE));
 		final String owner = request.getParameter(OWNER);
 		
-	
-		
 		final Meal meal = MealUtils.create(title, description, type, available, price, owner);
 	
 		if(meal == null){

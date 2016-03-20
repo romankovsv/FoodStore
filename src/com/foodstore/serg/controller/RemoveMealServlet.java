@@ -28,21 +28,6 @@ public class RemoveMealServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		response.setContentType(CONTENT_TYPE);
 		
-		/*
-		 * if(search == null ||search.isEmpty()){
-			request.setAttribute("message", SEARCH_IS_EMPTY);
-		}else{	
-			List<Meal> resultList = MealService.search(search);
-			request.setAttribute("food", resultList);
-		
-			if(resultList.isEmpty()){
-				request.setAttribute("message", NO_SUCH_MEAL);
-			}else{
-				request.setAttribute("success_message", FOUND_MEAL);
-			}
-		}
-		 */
-		
 		try{	
 			long idForRemoving = Long.parseLong(request.getParameter(ID));
 			if(MealService.remove(idForRemoving)){
