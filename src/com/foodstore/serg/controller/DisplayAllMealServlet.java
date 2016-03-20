@@ -20,7 +20,7 @@ public class DisplayAllMealServlet extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		response.sendRedirect("dashboard.jsp");
+		doPost(request,response);
 	}
 
 	
@@ -36,7 +36,6 @@ public class DisplayAllMealServlet extends HttpServlet {
 		}else{
 			request.setAttribute("success_message", LIST_OF_MEALS);
 			request.setAttribute("food", meals);
-			
 		}
 		
 		getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);

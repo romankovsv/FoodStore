@@ -12,7 +12,7 @@ public class ServletConstants {
 	public static final String SUCCESS = "<html><body>Meal is successfully created and added to store</body></html>";
 	public static final String NOT_ADDED = "<html><body>Meal wasn`t added</body></html";
 	
-	public static final String NO_PRODUCT = "<html>There are no meals int our store</html>";
+	public static final String NO_PRODUCT = "<html>There are no meals in our store</html>";
 	public static final String LIST_OF_MEALS = "<html>Our Meals:</html>";
 	
 	public static final String SUCCESS_DELETE = "<html><body>Meal was successfully deleted from store</body></html>";
