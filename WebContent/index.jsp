@@ -12,8 +12,8 @@
     <header class="topbar">
         <ul>
            <li><a class="active href="index.jsp">Home</a></li>
-            <li><a href="add.jsp" >Add</a></li>
-            <li><a href="dashboard.jsp">Dashboard</a></li>
+            <li><a href="./add" >Add</a></li>
+            <li><a href="./display" >Dashboard</a></li>
         </ul>
 	</header>
 
