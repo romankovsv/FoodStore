@@ -2,6 +2,7 @@ package com.foodstore.serg.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,14 +40,15 @@ public class AddMealServlet extends HttpServlet {
 		final Meal meal = MealUtils.create(title, description, type, available, price, owner);
 	
 		if(meal == null){
-			out.write(ERROR);
+			request.setAttribute("message", ERROR);
 		}else{
 			if(MealService.add(meal)){
-				out.write(SUCCESS);
+				request.setAttribute("success_message", SUCCESS);
 			}else{
-				out.write(NOT_ADDED);
+				request.setAttribute("message", NOT_ADDED);
 			}
 		}	
+		
+		getServletContext().getRequestDispatcher("/add.jsp").forward(request, response);
 	}
-
 }

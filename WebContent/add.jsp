@@ -17,7 +17,10 @@
         </ul>
 	</header>
   
-<br>
+	</br>
+	<div class="unsuccess_message">${message}</div>
+	<div class="success_message">${success_message}</div>
+
 <p class="suggest">Please add the product:</p>
 	
 	<body class="page">
