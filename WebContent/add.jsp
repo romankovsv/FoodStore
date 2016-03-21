@@ -30,7 +30,7 @@
                 
 				<tr>
                     <td><label>Title:</label></td>
-                    <td><input class="inputs" type="text" name="title"></td>
+                    <td><input class="inputs" type="text" name="title" required></td>
 				<tr>
                     <td><label>Description:</label></td>
                     <td><textarea class="inputs" name="description"></textarea></td>
@@ -51,7 +51,7 @@
                 </tr>
 				<tr>
                     <td><label>Price:</label></td>
-                    <td><input class="inputs" type="number" name="price" min=0></td>
+                    <td><input class="inputs" type="number" name="price" min=0 required></td>
                 </tr>
 				<tr>
                     <td><label>Owner:</label></td>
