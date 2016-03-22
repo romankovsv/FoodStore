@@ -40,12 +40,12 @@ public class AddMealServlet extends HttpServlet {
 		final Meal meal = MealUtils.create(title, description, type, available, price, owner);
 	
 		if(meal == null){
-			request.setAttribute("message", ERROR);
+			request.setAttribute(MESSAGE, ERROR);
 		}else{
 			if(MealService.add(meal)){
-				request.setAttribute("success_message", SUCCESS);
+				request.setAttribute(SUCCESS_MESSAGE, SUCCESS);
 			}else{
-				request.setAttribute("message", NOT_ADDED);
+				request.setAttribute(MESSAGE, NOT_ADDED);
 			}
 		}	
 		

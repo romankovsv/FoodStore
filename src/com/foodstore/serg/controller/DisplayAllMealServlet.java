@@ -32,10 +32,10 @@ public class DisplayAllMealServlet extends HttpServlet {
 		List<Meal> meals = MealService.getAll();
 		
 		if(meals.isEmpty()){
-			request.setAttribute("success_message", NO_PRODUCT);
+			request.setAttribute(SUCCESS_MESSAGE, NO_PRODUCT);
 		}else{
-			request.setAttribute("success_message", LIST_OF_MEALS);
-			request.setAttribute("food", meals);
+			request.setAttribute(SUCCESS_MESSAGE, LIST_OF_MEALS);
+			request.setAttribute(FOOD, meals);
 		}
 		
 		getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);

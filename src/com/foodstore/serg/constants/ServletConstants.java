@@ -25,4 +25,10 @@ public class ServletConstants {
 	public static final String FOUND_MEAL = "<html><body>We have found meal/s:<body></html>";
 	public static final String SEARCH_IS_EMPTY = "<html><body>Search is empty<body></html>";
 	public static final String SEARCH = "search";
+	
+	public static final String MESSAGE = "message";
+	public static final String SUCCESS_MESSAGE = "success_message";
+	public static final String FOOD = "food";
+	public static final String SUCCESS_REMOVE ="success_remove";
+	public static final String UNSUCCESS_REMOVE = "unsuccess_remove";
 }

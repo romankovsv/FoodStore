@@ -32,15 +32,15 @@ public class RemoveMealServlet extends HttpServlet {
 			long idForRemoving = Long.parseLong(request.getParameter(ID));
 			
 			if(MealService.remove(idForRemoving)){
-				request.setAttribute("title", request.getParameter("title"));
-				request.setAttribute("success_remove", SUCCESS_DELETE);
+				request.setAttribute(TITLE, request.getParameter("title"));
+				request.setAttribute(SUCCESS_REMOVE, SUCCESS_DELETE);
 			}else{
-				request.setAttribute("unsuccess_remove", NOT_DELETED);
+				request.setAttribute(UNSUCCESS_REMOVE, NOT_DELETED);
 			}
 		}catch(NumberFormatException e){
-			request.setAttribute("unsuccess_remove",INCORRECT_INPUT);
+			request.setAttribute(UNSUCCESS_REMOVE,INCORRECT_INPUT);
 		}catch(Exception e){
-			request.setAttribute("unsuccess_remove", EXCEPTION);
+			request.setAttribute(UNSUCCESS_REMOVE, EXCEPTION);
 		}
 		
 		getServletContext().getRequestDispatcher("/display").forward(request, response);

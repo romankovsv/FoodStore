@@ -31,15 +31,15 @@ public class SearchMealServlet extends HttpServlet {
 		final String search = request.getParameter(SEARCH);
 		
 		if(search == null ||search.isEmpty()){
-			request.setAttribute("message", SEARCH_IS_EMPTY);
+			request.setAttribute(MESSAGE, SEARCH_IS_EMPTY);
 		}else{	
 			List<Meal> resultList = MealService.search(search);
-			request.setAttribute("food", resultList);
+			request.setAttribute(FOOD, resultList);
 		
 			if(resultList.isEmpty()){
-				request.setAttribute("message", NO_SUCH_MEAL);
+				request.setAttribute(MESSAGE, NO_SUCH_MEAL);
 			}else{
-				request.setAttribute("success_message", FOUND_MEAL);
+				request.setAttribute(SUCCESS_MESSAGE, FOUND_MEAL);
 			}
 		}
 		
