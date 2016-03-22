@@ -56,7 +56,6 @@ public class MealRepository {
 				resultOfSearch.add(meal);
 			}
 		}
-		
 		return resultOfSearch;
 	}
 }
