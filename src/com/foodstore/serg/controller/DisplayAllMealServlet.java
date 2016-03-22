@@ -32,7 +32,7 @@ public class DisplayAllMealServlet extends HttpServlet {
 		List<Meal> meals = MealService.getAll();
 		
 		if(meals.isEmpty()){
-			request.setAttribute("message", NO_PRODUCT);
+			request.setAttribute("success_message", NO_PRODUCT);
 		}else{
 			request.setAttribute("success_message", LIST_OF_MEALS);
 			request.setAttribute("food", meals);

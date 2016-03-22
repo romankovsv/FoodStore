@@ -37,6 +37,10 @@
         		<div class="unsuccess_message">${message}</div>
         		
         		<div class="success_message">${success_message}</div>
+        		
+        		<div class ="success_message">${title} ${success_remove} </div>
+        		
+        		<div class ="unsuccess_message">${unsuccess_remove} </div>
         		</br>
         		
 <table class="tableOfMeals" >
@@ -64,6 +68,7 @@
       	<td class="columnForDelete">
       		<form action="remove" method="post">
       		 <input type="hidden" name="id" value="${food.id}" >
+      		  <input type="hidden" name="title" value="${food.title}" >
           	<input type="submit" class="delete" value="Delete" />
         	</form>
       	</td>
