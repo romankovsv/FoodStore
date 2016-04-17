@@ -48,7 +48,7 @@ public class AddMealServlet extends HttpServlet {
 				request.setAttribute(MESSAGE, NOT_ADDED);
 			}
 		}	
-		
+	
 		getServletContext().getRequestDispatcher("/add.jsp").forward(request, response);
 	}
 }
